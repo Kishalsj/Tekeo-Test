@@ -4,8 +4,10 @@ import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { StoreContext } from '../../context/StoreContext'
+import Sidecart from '../SideCart/SideCart'
 
 const Navbar = ({setShowLogin}) => {
+  const [showCart, setShowCart] = useState(false);
 
   const [menu,setMenu] = useState("home")
 
@@ -54,13 +56,14 @@ const Navbar = ({setShowLogin}) => {
   }, []); // Empty dependency array to run the effect only once
 
   return (
+    <>
     <div className='navbar'>
         <Link to='/'><img src={assets.logo} alt="" className='logo' /></Link>
         <ul className="navbar-menu">
-        <Link to='/' onClick={()=>setMenu("home")} className={menu==="home"?"active":""}>home</Link>
-        <a href='#explore-menu' onClick={()=>setMenu("menu")} className={menu==="menu"?"active":""}>menu</a>
+        <Link to='/' onClick={()=>setMenu("home")} className={menu==="home"?"active":""}>Home</Link>
+        <a href='#explore-menu' onClick={()=>setMenu("menu")} className={menu==="menu"?"active":""}>Menu</a>
         {/* <a href='#app-download' onClick={()=>setMenu("mobile-app")} className={menu==="mobile-app"?"active":""}>mobile-app</a> */}
-        <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu==="contact-us"?"active":""}>contact us</a>
+        <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu==="contact-us"?"active":""}>Contact us</a>
         </ul>
         <div className="navbar-right">
         <div className='navbar'>
@@ -71,10 +74,16 @@ const Navbar = ({setShowLogin}) => {
             <input type="checkbox" class="visual-toggle" id="visual-toggle"/>
         </label>
       </div>
-            <div className="navbar-search-icon">
+
+      <div className="navbar-search-icon" onClick={() => setShowCart(true)}>
+          <img className="basketlogo" src={assets.basket_icon} alt="Basket" />
+          <div className={getTotalCartAmount()===0?"":"dot"}></div>
+
+        </div>
+            {/* <div className="navbar-search-icon">
                 <Link to='/cart'><img className='basketlogo' src={assets.basket_icon} alt="" /></Link>
                 <div className={getTotalCartAmount()===0?"":"dot"}></div>
-            </div>
+            </div> */}
             {!token?<button className='signbutton' onClick={()=>setShowLogin(true)}>sign in</button>
             :<div className='navbar-profile'>
               <img src={assets.profile_icon} className='white-filter' alt="" />
@@ -86,6 +95,9 @@ const Navbar = ({setShowLogin}) => {
               </div>}
         </div>
     </div>
+    <Sidecart showCart={showCart} setShowCart={setShowCart} />
+
+    </>
   )
 }
 

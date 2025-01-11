@@ -1,9 +1,10 @@
 .header{
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
+    background: no-repeat;
     background-size: contain;
     position: relative;
+    border-radius: 50px;
 }
 
 .header-contents{
@@ -43,11 +44,19 @@
 }
 
 :root .buttonwl {
-    color: black;
+    color: rgb(221, 221, 221);  /* Black text */
+    border: 2px solid rgb(255, 255, 255);  /* White border */
+    background: rgba(255, 255, 255, 0.288);  /* Semi-transparent white background */
+    backdrop-filter: blur(5px);  /* Blurred background */
+    cursor: pointer;
 }
 
 .lightcolors .buttonwl {
-    color: #747474;
+    color: #ffffff;
+    border: 2px solid rgb(233, 123, 19);  /* White border */
+    background: rgba(255, 255, 255, 0.288);  /* Semi-transparent white background */
+    backdrop-filter: blur(5px);  /* Blurred background */
+    cursor: pointer;
 }
 
 
