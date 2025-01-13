@@ -49,7 +49,7 @@ const Sidecart = ({ showCart, setShowCart }) => {
                     
                   </div>
                   <div className="item-info">
-      <div className="item-price">${item.price * cartItems[item._id]}</div>
+      <div className="item-price">Rs.{item.price * cartItems[item._id]}</div>
       <button
         className="delete-button"
         onClick={() => removeFromCart(item._id)}
@@ -69,15 +69,15 @@ const Sidecart = ({ showCart, setShowCart }) => {
           <div className="total">
             <div className="total-details">
               <span>Subtotal</span>
-              <span>${getTotalCartAmount()}</span>
+              <span>Rs.{getTotalCartAmount()}.00</span>
             </div>
             <div className="total-details">
               <span>Delivery Fee</span>
-              <span>${getTotalCartAmount() === 0 ? 0 : 2}</span>
+              <span>Rs.{getTotalCartAmount() === 0 ? 0 : 2}.00</span>
             </div>
             <div className="total-details total-bold">
               <b>Total</b>
-              <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
+              <b>Rs.{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}.00</b>
             </div>
           </div>
           <button
