@@ -1,0 +1,52 @@
+/* Styles for the Login component */
+.login-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 600px;
+    height: 500px;
+  }
+  
+  .login-popup input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .login-popup button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1ecf4a;
+    color: #fff;
+    cursor: pointer;
+    height: 150px;
+    width: 200px;
+    font-size: 20px ;
+  }
+
+  .login-popup h2 {
+    padding: 40px 10px;
+    border: none;
+    color: #e6423c;
+    font-size: 40px;
+  }
+  
+  .login-popup img{
+    width: 180px;
+  }
+
+  
