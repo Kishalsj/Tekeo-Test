@@ -1,21 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './Login.css'; 
+import './Login.css';
 import { assets } from '../../assets/assets';
 
 const Login = ({ setLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); // State to track error message
   const navigate = useNavigate();
 
   const handleLogin = () => {
     if (username === 'admin' && password === 'admin123') {
       localStorage.setItem('isLoggedIn', true);
       setLoggedIn(true);
-      navigate('/list'); 
+      navigate('/list');
     } else {
-      alert('Invalid username or password'); 
+      setErrorMessage('Invalid username or password'); // Set the error message
     }
   };
 
@@ -23,7 +24,7 @@ const Login = ({ setLoggedIn }) => {
     <div className="login-popup">
       <h2>Admin Login</h2>
       <img 
-          className='profilephoto' 
+          className="profilephoto" 
           src={assets.profile_image} 
           alt="Profile" 
       />
@@ -39,6 +40,13 @@ const Login = ({ setLoggedIn }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      {/* Display the error message if it exists */}
+      {errorMessage && (
+        <div className="error-container">
+          <span className="error-icon">⚠️</span>
+          <p className="error-message">{errorMessage}</p>
+        </div>
+      )}
       <button onClick={handleLogin}>
         Login
       </button>
@@ -51,3 +59,4 @@ Login.propTypes = {
 };
 
 export default Login;
+

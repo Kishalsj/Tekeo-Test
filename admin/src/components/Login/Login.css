@@ -1,52 +1,113 @@
 /* Styles for the Login component */
 .login-popup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    width: 600px;
-    height: 500px;
-  }
-  
-  .login-popup input {
-    margin: 10px 0;
-    padding: 10px;
-    width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .login-popup button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #1ecf4a;
-    color: #fff;
-    cursor: pointer;
-    height: 150px;
-    width: 200px;
-    font-size: 20px ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 400px;
+  max-width: 90%; /* Responsive for smaller screens */
+  height: auto;
+  min-height: 450px;
+  text-align: center;
+}
+
+.login-popup h2 {
+  margin-bottom: 20px;
+  color: #e6423c;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.login-popup img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  object-fit: cover; /* Ensures the image fills the circle properly */
+  object-position: center; /* Centers the content within the circle */
+}
+
+.login-popup input {
+  margin: 10px 0;
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box; /* Prevents padding from affecting width */
+}
+
+.login-popup input:focus {
+  border-color: #1ecf4a;
+  box-shadow: 0 0 8px rgba(30, 207, 74, 0.5);
+}
+
+.login-popup button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1ecf4a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-popup button:hover {
+  background-color: #17a63d;
+  transform: scale(1.05); /* Subtle hover effect */
+}
+
+.login-popup button:active {
+  transform: scale(0.95); /* Button press effect */
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.error-icon {
+  color: red;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .login-popup {
+      width: 90%;
+      padding: 20px;
   }
 
   .login-popup h2 {
-    padding: 40px 10px;
-    border: none;
-    color: #e6423c;
-    font-size: 40px;
-  }
-  
-  .login-popup img{
-    width: 180px;
+      font-size: 28px;
   }
 
-  
+  .login-popup input {
+      font-size: 14px;
+  }
+
+  .login-popup button {
+      font-size: 16px;
+  }
+}
