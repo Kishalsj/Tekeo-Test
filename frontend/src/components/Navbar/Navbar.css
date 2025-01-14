@@ -1,4 +1,8 @@
 .navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    background-color: var(--body-color); /* Adjust the background color to suit your design */
     padding: 20px 0px;
     display: flex;
     justify-content: space-between;
