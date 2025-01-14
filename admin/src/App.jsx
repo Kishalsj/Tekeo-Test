@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
@@ -8,6 +9,7 @@ import Orders from './pages/Orders/Orders';
 import Login from './components/Login/Login';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AdminChat from './components/AdminChat/AdminChat';
 
 const App = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -41,6 +43,9 @@ const App = () => {
           <Route path="/list" element={<List url={url} />} />
           <Route path="/orders" element={<Orders url={url} />} />
           <Route path="*" element={<Navigate to="/list" />} />
+          <Route path="/chat" element={<AdminChat/>} />
+
+
         </Routes>
       </div>
     </div>
